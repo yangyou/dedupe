@@ -1,6 +1,12 @@
 #!/bin/sh
 
-BASEDIR="."
+if [$# gt 1]; then
+	BASEDIR="."
+else
+	BASEDIR=$1
+	echo "Scanning directory $BASEDIR"
+fi
+
 HASHFILE="/tmp/hashfile$$"
 
 find $BASEDIR -type f -print0 | xargs -0 md5 > $HASHFILE
