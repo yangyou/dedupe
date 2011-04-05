@@ -1,10 +1,10 @@
 #!/bin/sh
 
-if [$# gt 1]; then
-	BASEDIR="."
-else
+if [ $# = 1 ]; then
 	BASEDIR=$1
 	echo "Scanning directory $BASEDIR"
+else
+	BASEDIR="."
 fi
 
 HASHFILE="/tmp/hashfile$$"
